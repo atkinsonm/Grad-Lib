@@ -9,6 +9,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/beginning" 
-        android:textSize="32sp" /> 
+        android:textSize="32sp" />
+
+    <Button
+        android:id="@+id/TextToSpeechButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="speakText"
+        android:text="Read it to me." />
 
 </LinearLayout>

@@ -1,9 +1,14 @@
 package com.michaelmeluso.grad_lib;
 
+import java.util.Locale;
+
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.speech.tts.TextToSpeech;
 
 public class ViewStoryActivity extends ActionBarActivity {
 	private PageDataSource datasource;
@@ -12,6 +17,7 @@ public class ViewStoryActivity extends ActionBarActivity {
 	
 	private TextView mStoryTextView;
 	private String story = "";
+	private TextToSpeech speechObj;
 	
 	public static final String EXTRA_PAGE_ID =
 			"com.michaelmeluso.android.grad-lib.page_id";
@@ -39,5 +45,33 @@ public class ViewStoryActivity extends ActionBarActivity {
     	story += pages[pageId].getMiddle() + " " + pages[pageId].getVerb();
     	story += " " + pages[pageId].getEnd();
         mStoryTextView.setText(story);
+        
+        speechObj=new TextToSpeech(getApplicationContext(), 
+        	      new TextToSpeech.OnInitListener() {
+        	      @Override
+        	      public void onInit(int status) {
+        	         if(status != TextToSpeech.ERROR){
+        	        	 speechObj.setLanguage(Locale.US);
+        	            }				
+        	         }
+        	      });
 	}
+	
+	@Override
+	   public void onPause(){
+	      if(speechObj !=null){
+	    	  speechObj.stop();
+	    	  speechObj.shutdown();
+	      }
+	      super.onPause();
+	   }
+	
+	public void speakText(View view){
+	      String toSpeak = story;
+	      //Toast.makeText(getApplicationContext(), toSpeak, 
+	      //Toast.LENGTH_SHORT).show();
+	      speechObj.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+
+	   }
+	
 }
