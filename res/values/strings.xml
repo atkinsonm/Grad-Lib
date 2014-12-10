@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Grad-Lib</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="noun_button">Get a noun for me!</string>
+    <string name="verb_button">Get a verb for me!</string>
+    <string name="adjective_button">Get an adjective for me!</string>
+    <string name="beginning">Beginning of the story.</string>
+    <string name="middle">Middle of the story.</string>
+    <string name="end">End of the story.</string>
+    <string name="random_word_one_hint">Noun</string>
+    <string name="random_word_two_hint">Verb</string>
+    <string name="random_word_three_hint">Adjective</string>
+    <string name="story_edit_title">Welcome to Grad-Lib!\nPlease fill in the following words:</string>
+    <string name="done">Done</string>
+    
+</resources>
